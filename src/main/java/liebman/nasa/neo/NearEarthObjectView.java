@@ -5,12 +5,12 @@ import java.awt.*;
 
 public class NearEarthObjectView extends JComponent {
 
-    public void setNearEarthObjects(NeoFeed.NearEarthObject neo) {
+    public void setNearEarthObject(NeoFeed.NearEarthObject neo) {
         this.neo = neo;
         repaint();
     }
 
-    NeoFeed.NearEarthObject neo;
+    private NeoFeed.NearEarthObject neo;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -20,22 +20,23 @@ public class NearEarthObjectView extends JComponent {
             return;
         }
 
+        // Earth
         g.setColor(Color.BLUE);
-        g.fillOval(-100, 200, 100, 100);
+        g.fillOval(-50, 200, 100, 100);
 
+        // Asteroid
         g.setColor(Color.RED);
-        g.fillOval(getWidth() - 10, 200, 10, 10);
+        g.fillOval(getWidth()-10, 200, 10, 10);
 
         double lunars = neo.closestLunarDistance();
         double uiDistance = getWidth()-10;
         double moonX = uiDistance / lunars;
 
-
+        // Moon
         g.setColor(Color.GRAY);
         g.fillOval((int) moonX, 200, 25, 25);
-
-//        double lunars = neo.closeApproachData.get(0).missDistance.lunar;
     }
+
 
 
 
