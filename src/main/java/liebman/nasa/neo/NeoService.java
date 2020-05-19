@@ -12,5 +12,5 @@ public interface NeoService {
                                @Query("end_date") String endDate);
 
     @GET("neo/rest/v1/neo/{id}?api_key=DEMO_KEY")
-    Call<NeoFeed.nearEarthObjects> getAsteroid(@Path("id") String id);
+    Call<NeoFeed.NearEarthObject> getAsteroid(@Path("id") String id);
 }
